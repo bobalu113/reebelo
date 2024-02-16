@@ -12,8 +12,13 @@ export class ProductResolver {
     @Args() { id }: ByIdArgs
   ): Promise<Product | null> {
     const product = await ProductModel.findById(id);
-
     return product;
+  }
+
+  @Query((returns) => [Product], { nullable: true })
+  async products(): Promise<Product[] | null> {
+    const products = await ProductModel.find({});
+    return products;
   }
 
   @Mutation((returns) => Boolean)
