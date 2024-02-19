@@ -14,6 +14,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import Link from 'next/link';
 
 interface Props extends React.PropsWithChildren {
 }
@@ -36,12 +37,12 @@ export default function AppLayout(props: Props) {
       <List>
         <ListItem key="home" disablePadding>
           <ListItemButton sx={{ textAlign: 'center' }}>
-            <ListItemText primary="Home" />
+            <Link href="/product"><ListItemText primary="Home" /></Link>
           </ListItemButton>
         </ListItem>
         <ListItem key="createProduct" disablePadding>
           <ListItemButton sx={{ textAlign: 'center' }}>
-            <ListItemText primary="Create Product" />
+            <Link href="/createProduct"><ListItemText primary="Create Product" /></Link>
           </ListItemButton>
         </ListItem>
       </List>
@@ -70,12 +71,16 @@ export default function AppLayout(props: Props) {
             MUI
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            <Button key="home" sx={{ color: '#fff' }}>
-              Home
-            </Button>
-            <Button key="createProduct" sx={{ color: '#fff' }}>
-              Create Product
-            </Button>
+            <Link href="/product/">
+              <Button key="home" sx={{ color: '#fff' }}>
+                Home
+              </Button>
+            </Link>
+            <Link href="/createProduct/">
+              <Button key="createProduct" sx={{ color: '#fff' }}>
+                Create Product
+              </Button>
+            </Link>
           </Box>
         </Toolbar>
       </AppBar>

@@ -24,7 +24,7 @@ export default async function Products() {
           stock  
         }
       }
-    `,
+    `
   });
   return (
     <Grid container spacing={2}>

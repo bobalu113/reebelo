@@ -1,5 +1,5 @@
 import { Arg, Args, Mutation, Query, Resolver } from "type-graphql";
-import { CreateProductInput, Product, UpdateProductInput } from "../types/Product";
+import { CreateProductInput, DecrementStockInput, Product, UpdateProductInput } from "../types/Product";
 import { ProductModel } from "../../model/Product";
 import { ByIdArgs } from ".";
 
@@ -37,6 +37,19 @@ export class ProductResolver {
       return true;
     }
     return false;
+  }
+
+  @Mutation((returns) => Product)
+  async decrementStock(
+    @Arg("decrementStockInput") input: DecrementStockInput
+  ): Promise<Product> {
+    const model = await ProductModel.findById(input._id);
+    if (model) {
+      model.stock -= input.quantity;
+      if (model.stock < 0) { model.stock = 0; }
+      await model.save();
+    }
+    return model;
   }
 
   @Mutation((returns) => Product)

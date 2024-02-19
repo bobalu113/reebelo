@@ -39,3 +39,14 @@ export class UpdateProductInput extends CreateProductInput {
   _id: Types.ObjectId;
 
 }
+
+@InputType()
+export class DecrementStockInput {
+
+  @Field((type) => ID)
+  _id: Types.ObjectId;
+
+  @Field((type) => Int)
+  quantity: number;
+
+}

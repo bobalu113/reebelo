@@ -1,7 +1,10 @@
 import createMarketplaceClient from "@/src/lib/marketplace-client";
 import { Product } from "../page";
 import { gql } from "@apollo/client";
-import { Button } from "@mui/material";
+import { Box, Button, TextField } from "@mui/material";
+import ProductImage from "@/src/components/ProductImage";
+import CreateOrder from "@/src/components/CreateOrder";
+import { createOrder } from '@/app/actions'
 
 export default async function Product({params: { id }}: { params: { id: string } }) {
   const client = createMarketplaceClient();
@@ -14,16 +17,24 @@ export default async function Product({params: { id }}: { params: { id: string }
           stock
         }
       }
-    `,
+    `, 
     variables: {
       id: id
     }
   });
 
+  const product = data.productById;
+
   return (
     <div>
-      <div>Product: {data.productById._id}</div>
-      <Button>Create Order</Button>
-    </div>
+      <Box>
+        <ProductImage size="256px" />
+        <div>Product {product._id}</div>
+        <div>Price: ${parseFloat(product.price).toFixed(2)}</div>
+        <div>Stock: {product.stock}</div>
+      </Box>
+      <hr/>
+      <CreateOrder product={product} createOrder={createOrder}/>
+  </div>
   );
 }
