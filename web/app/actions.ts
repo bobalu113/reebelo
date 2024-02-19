@@ -2,7 +2,7 @@
 
 import createOrderClient from "@/src/lib/order-client";
 import { FetchResult, gql } from "@apollo/client";
-import { Product } from "./product/page";
+import { Product } from "./product/Product";
 
 export async function createOrder(props: { product: Product, quantity: number }) {
   const client = createOrderClient();

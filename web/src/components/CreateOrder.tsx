@@ -1,6 +1,6 @@
 'use client';
 import { OrderCreator } from '@/app/actions';
-import { Product } from '@/app/product/page';
+import { Product } from "@/app/product/Product";
 import styled from '@emotion/styled'
 import { Alert, Button, Grid, TextField } from '@mui/material';
 import { FormEvent, useState } from 'react';

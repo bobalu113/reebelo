@@ -1,0 +1,14 @@
+{
+  "name": "order-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start:marketplace": "cd marketplace-api && yarn start",
+    "start:order": "cd order-api && yarn start",
+    "start:web": "cd web && yarn dev",
+    "start": "concurrently npm:start:*"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

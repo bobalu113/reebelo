@@ -1,6 +1,6 @@
 'use client';
 import { Box } from '@mui/material';
-import { Product } from '@/app/product/page';
+import { Product } from "@/app/product/Product";
 import Link from 'next/link';
 import ProductImage from "@/src/components/ProductImage";
 

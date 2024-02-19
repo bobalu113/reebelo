@@ -1,10 +1,15 @@
 import createMarketplaceClient from "@/src/lib/marketplace-client";
-import { Product } from "../page";
 import { gql } from "@apollo/client";
 import { Box, Button, TextField } from "@mui/material";
 import ProductImage from "@/src/components/ProductImage";
 import CreateOrder from "@/src/components/CreateOrder";
 import { createOrder } from '@/app/actions'
+
+export interface Product {
+  _id: string;
+  price: number;
+  stock: number;
+}
 
 export default async function Product({params: { id }}: { params: { id: string } }) {
   const client = createMarketplaceClient();

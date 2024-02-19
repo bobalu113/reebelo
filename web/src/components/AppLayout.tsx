@@ -40,6 +40,11 @@ export default function AppLayout(props: Props) {
             <Link href="/product"><ListItemText primary="Home" /></Link>
           </ListItemButton>
         </ListItem>
+        <ListItem key="orders" disablePadding>
+          <ListItemButton sx={{ textAlign: 'center' }}>
+            <Link href="/order"><ListItemText primary="Orders" /></Link>
+          </ListItemButton>
+        </ListItem>
         <ListItem key="createProduct" disablePadding>
           <ListItemButton sx={{ textAlign: 'center' }}>
             <Link href="/createProduct"><ListItemText primary="Create Product" /></Link>
@@ -74,6 +79,11 @@ export default function AppLayout(props: Props) {
             <Link href="/product/">
               <Button key="home" sx={{ color: '#fff' }}>
                 Home
+              </Button>
+            </Link>
+            <Link href="/order/">
+              <Button key="orders" sx={{ color: '#fff' }}>
+                Orders
               </Button>
             </Link>
             <Link href="/createProduct/">
