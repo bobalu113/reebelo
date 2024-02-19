@@ -8,8 +8,10 @@ This app consists of three small services:
 
 To run all three servcies in developer mode, from project root:
 
-1. yarn install
-2. yarn start
+1. git clone git@github.com:bobalu113/reebelo.git
+2. cd reebelo
+3. yarn install
+4. yarn start
 
 This will spin up all three services, and allow you browse to the front-end 
 dev server at http://localhost:4000/.
