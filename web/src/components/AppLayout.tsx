@@ -31,13 +31,18 @@ export default function AppLayout(props: Props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
+        Reebelo
       </Typography>
       <Divider />
       <List>
         <ListItem key="home" disablePadding>
           <ListItemButton sx={{ textAlign: 'center' }}>
-            <Link href="/product"><ListItemText primary="Home" /></Link>
+            <Link href="/"><ListItemText primary="Home" /></Link>
+          </ListItemButton>
+        </ListItem>
+        <ListItem key="product" disablePadding>
+          <ListItemButton sx={{ textAlign: 'center' }}>
+            <Link href="/product"><ListItemText primary="Products" /></Link>
           </ListItemButton>
         </ListItem>
         <ListItem key="orders" disablePadding>
@@ -73,12 +78,17 @@ export default function AppLayout(props: Props) {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            MUI
+            Reebelo
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            <Link href="/product/">
+            <Link href="/">
               <Button key="home" sx={{ color: '#fff' }}>
                 Home
+              </Button>
+            </Link>
+            <Link href="/product/">
+              <Button key="product" sx={{ color: '#fff' }}>
+                Products
               </Button>
             </Link>
             <Link href="/order/">
